@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 15px;
+            margin: 0px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+            
+        }
+        .container h1{
+            font-size: larger;
+            
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container"   align="center" >
+        <h1 align="center" >Text Box</h1>
+        <h3  align="center" >Enter your text here</h3>
+        <br>
+        <form action="" class="form">
+        <textarea name="" id="textInfo" cols="75" rows="10" onkeyup="textinfo()"></textarea>
+        <br><br>
+        <button type="button"onclick="upperCase()">uppercase</button>
+        <button type="button"onclick="lowercase()">lowercase</button>
+        <button type="button"onclick="textFind()">Find</button>
+        <button type="button" onclick="textUnderline()">Underline</button>
+        <button type="button" onclick="changeColor()">Color</button>
+        <button type="button" onclick="incSize()">IncreseSize</button>
+        <button type="button" onclick="decSize()">DecreseSize</button>
+        <br><br>
+        <h4 id="info"> </h4>
+    </form>
+    </div>
+    <script>
+        
+            let size1;
+        
+        let text=document.getElementById("textInfo");
+        let info=document.getElementById("info");
+        function upperCase(){
+            text.value=text.value.toUpperCase();
+        }
+        function lowercase(){
+            text.value=text.value.toLowerCase();
+        }
+        function textFind(){
+            let name=prompt("enter name to find");
+            if(text.value.includes(name)){
+                alert("found");
+            }
+            else{
+                alert("name not found");
+            }
+        }
+        function changeColor(){
+            let color1=prompt("enter color name");
+            text.style.color=color1
+        }
+        function textUnderline(){
+            text.style.textDecoration=`underline 2px solid red`;
+        }
+        function textinfo(){
+            let ans=text.value.trim().split(" ")
+            let ans1=text.value.length;
+            console.log(ans);
+            info.innerHTML=ans.length+"      "+ ans1;
+
+        }
+        function incSize(){
+             size1=prompt("enter size");
+            text.style.fontSize=`${size1}px`;
+        }
+        function decSize(){
+         
+            text.style.fontSize=`${size1-20}px`;
+        }
+    </script>
+
+    
+</body>
+</html>
